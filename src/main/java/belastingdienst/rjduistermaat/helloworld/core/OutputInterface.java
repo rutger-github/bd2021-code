@@ -1,5 +1,5 @@
 package belastingdienst.rjduistermaat.helloworld.core;
 
-public interface OperatorOutputInterface {
+public interface OutputInterface {
     void output(String output);
 }
