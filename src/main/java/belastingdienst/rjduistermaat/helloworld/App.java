@@ -1,6 +1,5 @@
 package belastingdienst.rjduistermaat.helloworld;
 
-import belastingdienst.rjduistermaat.helloworld.core.OperatorOutputInterface;
 import belastingdienst.rjduistermaat.helloworld.core.OperatorService;
 import belastingdienst.rjduistermaat.helloworld.core.Person;
 import belastingdienst.rjduistermaat.helloworld.infrastructure.cli.SystemOutPrintln;
