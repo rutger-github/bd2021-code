@@ -1,4 +1,4 @@
-package belastingdienst.rjduistermaat.helloworld;
+package belastingdienst.rjduistermaat.helloworld.core;
 
 public class Person {
     private final String name;

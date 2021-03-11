@@ -1,13 +1,20 @@
 package belastingdienst.rjduistermaat.helloworld;
 
+import belastingdienst.rjduistermaat.helloworld.core.OperatorOutputInterface;
+import belastingdienst.rjduistermaat.helloworld.core.OperatorService;
+import belastingdienst.rjduistermaat.helloworld.core.Person;
+import belastingdienst.rjduistermaat.helloworld.infrastructure.cli.SystemOutPrintln;
+
 public class App {
 
     public static void main(String[] args) {
-        Operator operator = new Operator(
-                new Person("Rutger")
+        OperatorService operatorService = new OperatorService(
+                new SystemOutPrintln()
         );
 
-        System.out.println(operator.sayHello());
-        System.out.println(operator.sayGoodbye());
+        Person person = new Person("Rutger");
+
+        operatorService.sayHello(person);
+        operatorService.sayGoodbye(person);
     }
 }
