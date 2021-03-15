@@ -1,24 +1,36 @@
 package belastingdienst.rjduistermaat.labs.h3;
 
+import java.math.BigInteger;
+
 public class App {
 
     public static void main(String[] args) {
         TypeSystem typeSystem = new TypeSystem();
-//        typeSystem.showDifference();
+        typeSystem.showDifference();
 //        typeSystem.explainJ();
 //        typeSystem.calculateBinarySum(0b1010, 0b100);
 //        typeSystem.calculateNewHourUsingModuleOperator(80, 23);
 //        typeSystem.calculateDifferenceInDaysUsingModuleOperator(80, 23);
 //        typeSystem.minMaxValuesPrimitives();
-        checkClientNameAssumption();
+//        typeSystem.outputDefaultValueOfVars();
+//        checkClientNameAssumption();
+
 
     }
 
     private static void checkClientNameAssumption() {
+
         Client client1 = new Client("Jan");
         Client client2 = new Client("Piet");
         client2 = client1;
         client2.name = "Joris";
+
+        BigInteger bigint = BigInteger.valueOf(12345);
+        BigInteger bigint2 = BigInteger.valueOf(56789);
+
+        bigint2 = bigint;
+        System.out.println(bigint2);
+        System.out.println(bigint);
 
         String string1 = "Jan";
         String string2 = "Piet";

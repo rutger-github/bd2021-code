@@ -1,10 +1,13 @@
 package belastingdienst.rjduistermaat.labs.h3;
 
-import java.time.*;
-import java.time.format.DateTimeFormatter;
-import java.util.Date;
+import java.math.BigInteger;
+import java.time.Duration;
+import java.time.LocalDateTime;
+import java.time.Month;
 
 public class TypeSystem {
+    private boolean testBoolean;
+    private Client client;
 
     public void showDifference() {
         int i = 10;
@@ -78,5 +81,39 @@ public class TypeSystem {
         System.out.println("double max value = " + Double.MAX_VALUE);
         System.out.println("character min value = " + (int) Character.MIN_VALUE);
         System.out.println("character max value = " + (int) Character.MAX_VALUE);
+    }
+
+    public void outputDefaultValueOfVars() {
+        // not possible
+        //        boolean test;
+        //        if (test) {
+        //            System.out.println();
+        //        }
+
+        System.out.println(this.testBoolean);
+
+        var testVar = 2;
+        var testVar2 = "test";
+        testVar2 = "test2";
+
+        System.out.println(testVar);
+        System.out.println(testVar2);
+        System.out.println(this.client);
+
+        if (this.client == null) {
+            System.out.println("client not initialized");
+        } else {
+            System.out.println("client initialized");
+        }
+
+        char one = '1';
+        char two = '2';
+
+        int one1 = 1;
+        int two2 = 2;
+
+        String.valueOf(1);
+
+
     }
 }
