@@ -6,13 +6,22 @@ public class Person {
     private Gender gender;
 
     public static int numberOfPossibleGenders = Gender.values().length;
+    private final static int maximumAge = 130;
+    private final static String personDiedExceptionMessage = "The maximum age of a person is " + maximumAge;
 
-    public Person(String name, int age) {
+    public Person(String name, int age) throws PersonDiedException {
+        if (age > maximumAge) {
+            throw new PersonDiedException(personDiedExceptionMessage);
+        }
+
         this.name = name;
         this.age = age;
     }
 
-    public void haveBirthday() {
+    public void haveBirthday() throws PersonDiedException {
+        if (this.age + 1 > maximumAge) {
+            throw new PersonDiedException(personDiedExceptionMessage);
+        }
         this.age++;
     }
 
