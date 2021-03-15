@@ -1,4 +1,4 @@
-package belastingdienst.rjduistermaat.labs.h7;
+package belastingdienst.rjduistermaat.labs.h7.person;
 
 import org.junit.Test;
 
