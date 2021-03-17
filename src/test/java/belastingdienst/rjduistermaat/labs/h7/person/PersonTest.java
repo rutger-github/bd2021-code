@@ -1,7 +1,7 @@
 package belastingdienst.rjduistermaat.labs.h7.person;
 
-import org.junit.Test;
-import org.junit.Before;
+
+import org.junit.jupiter.api.Test;
 
 public class PersonTest {
     @Test

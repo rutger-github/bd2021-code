@@ -1,8 +1,9 @@
 package belastingdienst.rjduistermaat.labs.h7.bankingapplicationv2.infrastructure.memory;
 
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
 
 import java.math.BigDecimal;
 import java.util.HashMap;
@@ -13,7 +14,7 @@ public class BankAccountRepositoryTest {
     private String bankAccountClient1;
     private String bankAccountClient2;
 
-    @Before
+    @BeforeEach
     public void setUp() throws Exception {
         this.bankAccountRepository = new BankAccountRepository(this.getTestBankAccounts());
     }
@@ -24,8 +25,9 @@ public class BankAccountRepositoryTest {
         var balanceClient1 = this.bankAccountRepository.getBalance(this.bankAccountClient1);
         var balanceClient2 = this.bankAccountRepository.getBalance(this.bankAccountClient2);
 
-        Assert.assertEquals(BigDecimal.valueOf(50), balanceClient1);
-        Assert.assertEquals(BigDecimal.valueOf(150), balanceClient2);
+
+        Assertions.assertEquals(BigDecimal.valueOf(50), balanceClient1);
+        Assertions.assertEquals(BigDecimal.valueOf(150), balanceClient2);
     }
 
     @Test
@@ -33,7 +35,7 @@ public class BankAccountRepositoryTest {
         this.bankAccountRepository.withdraw(this.bankAccountClient1, BigDecimal.valueOf(20));
         var balanceClient1 = this.bankAccountRepository.getBalance(this.bankAccountClient1);
 
-        Assert.assertEquals(BigDecimal.valueOf(80), balanceClient1);
+        Assertions.assertEquals(BigDecimal.valueOf(80), balanceClient1);
     }
 
     @Test
@@ -41,7 +43,7 @@ public class BankAccountRepositoryTest {
         this.bankAccountRepository.deposit(this.bankAccountClient1, BigDecimal.valueOf(20));
         var balanceClient1 = this.bankAccountRepository.getBalance(this.bankAccountClient1);
 
-        Assert.assertEquals(BigDecimal.valueOf(120), balanceClient1);
+        Assertions.assertEquals(BigDecimal.valueOf(120), balanceClient1);
     }
 
     private Map<String, BigDecimal> getTestBankAccounts() {
