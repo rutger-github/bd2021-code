@@ -4,10 +4,15 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
 
 import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.stream.Stream;
+
+import static org.junit.jupiter.params.provider.Arguments.arguments;
 
 public class BankAccountRepositoryTest {
     private BankAccountRepository bankAccountRepository;
@@ -30,12 +35,13 @@ public class BankAccountRepositoryTest {
         Assertions.assertEquals(BigDecimal.valueOf(150), balanceClient2);
     }
 
-    @Test
-    public void whenWithdrawAmountFromBankAccountThenCorrectBalance() {
-        this.bankAccountRepository.withdraw(this.bankAccountClient1, BigDecimal.valueOf(20));
-        var balanceClient1 = this.bankAccountRepository.getBalance(this.bankAccountClient1);
+    @ParameterizedTest(name = "#{index} - Test with bankAccountNumber {0}, withdrawAmount {1}, expectedEndBalance {2} ")
+    @MethodSource("withdrawDataProvider")
+    public void whenWithdrawAmountFromBankAccountThenCorrectBalance(String bankAccountNumber, float withdrawAmount, float expectedEndBalance) {
+        this.bankAccountRepository.withdraw(bankAccountNumber, BigDecimal.valueOf(withdrawAmount));
+        var balanceClient1 = this.bankAccountRepository.getBalance(bankAccountNumber);
 
-        Assertions.assertEquals(BigDecimal.valueOf(80), balanceClient1);
+        Assertions.assertEquals(BigDecimal.valueOf(expectedEndBalance), balanceClient1);
     }
 
     @Test
@@ -44,6 +50,13 @@ public class BankAccountRepositoryTest {
         var balanceClient1 = this.bankAccountRepository.getBalance(this.bankAccountClient1);
 
         Assertions.assertEquals(BigDecimal.valueOf(120), balanceClient1);
+    }
+
+    private static Stream<Arguments> withdrawDataProvider() {
+        return Stream.of(
+                arguments("NL123", 20, 80),
+                arguments("BE125", 50.5f, 49.5f)
+        );
     }
 
     private Map<String, BigDecimal> getTestBankAccounts() {
