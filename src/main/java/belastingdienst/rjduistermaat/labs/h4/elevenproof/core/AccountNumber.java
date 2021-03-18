@@ -8,11 +8,11 @@ public class AccountNumber {
         String removedDotsAccountNumber = accountNumber.replace(".", "");
 
         if (this.checkValidNumericInput(removedDotsAccountNumber) == false) {
-            throw new RuntimeException();
+            throw new InvalidAccountNumberException();
         }
 
         if (this.checkValidElevenProof(removedDotsAccountNumber) == false) {
-            throw new RuntimeException(removedDotsAccountNumber);
+            throw new InvalidAccountNumberException();
         }
 
 
@@ -40,5 +40,9 @@ public class AccountNumber {
         }
 
         return (sum % 11 == 0);
+    }
+
+    public String getAccountNumber() {
+        return accountNumber;
     }
 }
