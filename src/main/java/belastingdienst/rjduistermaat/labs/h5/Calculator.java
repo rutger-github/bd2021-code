@@ -2,9 +2,13 @@ package belastingdienst.rjduistermaat.labs.h5;
 
 public class Calculator {
 
-//    public static int greatest(int a, int b) {
-//        return Math.max(a, b);
-//    }
+
+    /**
+     * @deprecated
+     */
+    public static int greatest(int a, int b) {
+        return Math.max(a, b);
+    }
 
     public static String greatest(String a, String b) {
 
@@ -34,25 +38,38 @@ public class Calculator {
         return max;
     }
 
+    /**
+     * @deprecated
+     */
     public static int factorial(int n, int sum) {
-
-        String getal = n == 1 ? "Een" : "Hoger";
 
         // ternary operator
         // (inline condition)
         // if(statement) ? do this(true) : dothis(false)
-        return (n == 1) ? sum : factorial(n - 1, sum * n);
+//        return (n == 1) ? sum : factorial(n - 1, sum * n);
 
         // stop
-//        if (n == 1) return sum;
-//        sum = sum * n;
-//
-//        return factorial(n - 1, sum);
+        if (n == 1) return sum;
+        sum = sum * n;
+
+        return factorial(n - 1, sum);
 
 
-        // 5! = 5 * 4 * 3 * 2 * 1 = 120
-//        n + watErAlIs;
+    }
 
+    public static int factorialImproved(int n) {
+        return recursiveFactorialImproved(n, 0);
+    }
+
+    private static int recursiveFactorialImproved(int n, int sum) {
+
+        if (n >= -1 && n <= 1) return sum;
+
+        var newN = n > 0 ? n - 1 : n + 1;
+
+        if (sum == 0) sum = n > 0 ? 1 : -1;
+
+        return recursiveFactorialImproved(newN, sum * n);
     }
 
 }
