@@ -63,9 +63,20 @@ public class Calculator {
 
     private static int recursiveFactorialImproved(int n, int sum) {
 
+//        long overflowInt = (long) sum * n;
+//        if (overflowInt > Integer.MAX_VALUE) {
+//            throw new RuntimeException();
+//        }
+
+        // -1, 0, 1
         if (n >= -1 && n <= 1) return sum;
 
         var newN = n > 0 ? n - 1 : n + 1;
+//        if(n > 0){
+//            var newN = n -1;
+//        } else {
+//            var newN = n  +1;
+//        }
 
         if (sum == 0) sum = n > 0 ? 1 : -1;
 
