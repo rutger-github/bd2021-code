@@ -3,6 +3,7 @@ package belastingdienst.rjduistermaat.labs.h7.bankingapplicationv2.core;
 import belastingdienst.rjduistermaat.labs.h7.bankingapplicationv2.core.commands.BankDepositCommand;
 import belastingdienst.rjduistermaat.labs.h7.bankingapplicationv2.core.commands.BankTransferCommand;
 import belastingdienst.rjduistermaat.labs.h7.bankingapplicationv2.core.commands.BankWithdrawCommand;
+import belastingdienst.rjduistermaat.labs.h7.bankingapplicationv2.core.commands.GetBalanceCommand;
 import belastingdienst.rjduistermaat.labs.h7.bankingapplicationv2.core.exceptions.InsufficientBalanceException;
 
 import java.math.BigDecimal;
@@ -49,8 +50,8 @@ public class BankingService {
 
     }
 
-    public BigDecimal getBalance(String bankAccountNumber) {
-        return this.bankAccountRepository.getBalance(bankAccountNumber);
+    public BigDecimal getBalance(GetBalanceCommand getBalanceCommand) {
+        return this.bankAccountRepository.getBalance(getBalanceCommand.getBankAccountNumber());
     }
 
     private boolean minimumBalanceAvailable(String bankAccountNumber, BigDecimal amountToTransfer) {

@@ -12,10 +12,10 @@ public class BankTransferCommand {
     public BankTransferCommand(String fromBankAccountNumber, String toBankAccountNumber, BigDecimal amountToTransfer) throws InvalidAmountToTransferException {
         this.fromBankAccountNumber = fromBankAccountNumber;
         this.toBankAccountNumber = toBankAccountNumber;
-//
-//        if (amountToTransfer.compareTo(BigDecimal.ZERO) > 0) {
-//            throw new InvalidAmountToTransferException();
-//        }
+
+        if (amountToTransfer.compareTo(BigDecimal.ZERO) < 0) {
+            throw new InvalidAmountToTransferException();
+        }
         this.amountToTransfer = amountToTransfer;
     }
 
