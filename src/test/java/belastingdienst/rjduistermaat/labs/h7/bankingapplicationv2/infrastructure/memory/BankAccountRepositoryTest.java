@@ -1,5 +1,6 @@
 package belastingdienst.rjduistermaat.labs.h7.bankingapplicationv2.infrastructure.memory;
 
+import belastingdienst.rjduistermaat.labs.h7.bankingapplicationv2.core.exceptions.UnknownBankAccountNumberException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -54,6 +55,27 @@ public class BankAccountRepositoryTest {
         var balanceClient1 = this.bankAccountRepository.getBalance(this.bankAccountClient1);
 
         Assertions.assertEquals(BigDecimal.valueOf(120), balanceClient1);
+    }
+
+    @Test
+    public void givenUnknownBankAccountNumberThenThrowException() {
+
+        Assertions.assertThrows(UnknownBankAccountNumberException.class, () -> {
+            this.bankAccountRepository.getBalance("DoesNotExist");
+        });
+
+        Assertions.assertThrows(UnknownBankAccountNumberException.class, () -> {
+            this.bankAccountRepository.withdraw("DoesNotExist", BigDecimal.valueOf(1));
+        });
+
+        Assertions.assertThrows(UnknownBankAccountNumberException.class, () -> {
+            this.bankAccountRepository.deposit("DoesNotExist", BigDecimal.valueOf(1));
+        });
+
+        Assertions.assertThrows(UnknownBankAccountNumberException.class, () -> {
+            this.bankAccountRepository.transfer("DoesNotExist", "AlsoUnknown", BigDecimal.valueOf(1));
+        });
+
     }
 
     private static Stream<Arguments> withdrawDataProvider() {

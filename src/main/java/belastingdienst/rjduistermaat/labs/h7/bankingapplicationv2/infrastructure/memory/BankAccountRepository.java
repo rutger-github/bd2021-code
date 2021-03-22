@@ -1,6 +1,7 @@
 package belastingdienst.rjduistermaat.labs.h7.bankingapplicationv2.infrastructure.memory;
 
 import belastingdienst.rjduistermaat.labs.h7.bankingapplicationv2.core.BankAccountRepositoryInterface;
+import belastingdienst.rjduistermaat.labs.h7.bankingapplicationv2.core.exceptions.UnknownBankAccountNumberException;
 
 import java.math.BigDecimal;
 import java.util.HashMap;
@@ -16,8 +17,8 @@ public class BankAccountRepository implements BankAccountRepositoryInterface {
 
     @Override
     public void transfer(String fromBankAccountNumber, String toBankAccountNumber, BigDecimal amountToTransfer) {
-        Map fromBankAccount = this.bankAccounts.get(fromBankAccountNumber);
-        Map toBankAccount = this.bankAccounts.get(toBankAccountNumber);
+        var fromBankAccount = this.getMapBankAccount(fromBankAccountNumber);
+        var toBankAccount = this.getMapBankAccount(toBankAccountNumber);
 
         BigDecimal fromBankAccountBalance = (BigDecimal) fromBankAccount.get("balance");
         BigDecimal toBankAccountBalance = (BigDecimal) toBankAccount.get("balance");
@@ -31,7 +32,7 @@ public class BankAccountRepository implements BankAccountRepositoryInterface {
     @Override
     public void withdraw(String bankAccountNumber, BigDecimal amountToWithdraw) {
 
-        Map bankAccount = this.bankAccounts.get(bankAccountNumber);
+        var bankAccount = this.getMapBankAccount(bankAccountNumber);
         BigDecimal bankAccountBalance = (BigDecimal) bankAccount.get("balance");
         bankAccount.put("balance", bankAccountBalance.subtract(amountToWithdraw));
 
@@ -42,7 +43,7 @@ public class BankAccountRepository implements BankAccountRepositoryInterface {
     @Override
     public void deposit(String bankAccountNumber, BigDecimal amountToDeposit) {
 
-        Map bankAccount = this.bankAccounts.get(bankAccountNumber);
+        var bankAccount = this.getMapBankAccount(bankAccountNumber);
 
         BigDecimal bankAccountBalance = (BigDecimal) bankAccount.get("balance");
         bankAccount.put("balance", bankAccountBalance.add(amountToDeposit));
@@ -52,7 +53,7 @@ public class BankAccountRepository implements BankAccountRepositoryInterface {
 
     @Override
     public BigDecimal getBalance(String bankAccountNumber) {
-        return (BigDecimal) this.bankAccounts.get(bankAccountNumber).get("balance");
+        return (BigDecimal) this.getMapBankAccount(bankAccountNumber).get("balance");
     }
 
     public void createAccount(String accountNumber, BigDecimal balance, BigDecimal interestRate) {
@@ -62,6 +63,12 @@ public class BankAccountRepository implements BankAccountRepositoryInterface {
         innerMap.put("interestRate", interestRate);
 
         this.bankAccounts.put(accountNumber, innerMap);
+    }
 
+    private Map getMapBankAccount(String bankAccountNumber) {
+        if (this.bankAccounts.containsKey(bankAccountNumber) == false) {
+            throw new UnknownBankAccountNumberException();
+        }
+        return this.bankAccounts.get(bankAccountNumber);
     }
 }
