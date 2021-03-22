@@ -10,4 +10,6 @@ public interface BankAccountRepositoryInterface {
     void deposit(String bankAccountNumber, BigDecimal amountToDeposit);
 
     BigDecimal getBalance(String bankAccountNumber);
+
+    void createAccount(String accountNumber, BigDecimal balance, BigDecimal interestRate);
 }
