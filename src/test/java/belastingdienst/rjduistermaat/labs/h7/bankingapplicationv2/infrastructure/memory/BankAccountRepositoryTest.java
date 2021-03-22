@@ -8,8 +8,6 @@ import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
 import java.math.BigDecimal;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.stream.Stream;
 
 import static org.junit.jupiter.params.provider.Arguments.arguments;
@@ -21,7 +19,13 @@ public class BankAccountRepositoryTest {
 
     @BeforeEach
     public void setUp() throws Exception {
-        this.bankAccountRepository = new BankAccountRepository(this.getTestBankAccounts());
+        this.bankAccountRepository = new BankAccountRepository();
+
+        this.bankAccountClient1 = "NL123";
+        this.bankAccountClient2 = "BE125";
+
+        this.bankAccountRepository.createAccount(bankAccountClient1, BigDecimal.valueOf(100), BigDecimal.valueOf(1.2));
+        this.bankAccountRepository.createAccount(bankAccountClient2, BigDecimal.valueOf(100), BigDecimal.valueOf(1.2));
     }
 
     @Test
@@ -57,16 +61,5 @@ public class BankAccountRepositoryTest {
                 arguments("NL123", 20, 80),
                 arguments("BE125", 50.5f, 49.5f)
         );
-    }
-
-    private Map<String, BigDecimal> getTestBankAccounts() {
-        this.bankAccountClient1 = "NL123";
-        this.bankAccountClient2 = "BE125";
-
-        Map<String, BigDecimal> bankAccounts = new HashMap<>();
-        bankAccounts.put(this.bankAccountClient1, BigDecimal.valueOf(100));
-        bankAccounts.put(this.bankAccountClient2, BigDecimal.valueOf(100));
-
-        return bankAccounts;
     }
 }
