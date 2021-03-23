@@ -43,5 +43,10 @@ class TrajectPrijsServiceTest {
         Assertions.assertThrows(InvalidLocationException.class, () -> {
             int actual = this.target.getTrajectPrijs("Amsterdam", "Bestaatteeeniet");
         });
+
+        var thrown = org.assertj.core.api.Assertions.catchThrowable(() -> {
+            int actual = this.target.getTrajectPrijs("Amsterdam", "Bestaatteeeniet");
+        });
+        org.assertj.core.api.Assertions.assertThat(thrown).isExactlyInstanceOf(InvalidLocationException.class);
     }
 }
