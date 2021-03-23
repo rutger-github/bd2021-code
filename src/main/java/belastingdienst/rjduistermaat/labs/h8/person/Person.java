@@ -1,5 +1,6 @@
 package belastingdienst.rjduistermaat.labs.h8.person;
 
+import java.util.Arrays;
 import java.util.Objects;
 
 public class Person {
@@ -54,5 +55,19 @@ public class Person {
 
     public int hashCode() {
         return age * Objects.hashCode(name) * Objects.hashCode(gender);
+    }
+
+    public void experimentObject() {
+        var cls = this.getClass();
+        var name = cls.getName();
+
+        var declaredMethods = cls.getDeclaredMethods();
+        System.out.println(Arrays.toString(declaredMethods));
+
+        var methods = cls.getMethods();
+        System.out.println(Arrays.toString(methods));
+
+        var fields = cls.getDeclaredFields();
+        System.out.println(Arrays.toString(fields));
     }
 }
