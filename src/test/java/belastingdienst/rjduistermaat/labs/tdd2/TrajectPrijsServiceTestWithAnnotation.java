@@ -8,8 +8,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
 class TrajectPrijsServiceTestWithAnnotation {
@@ -41,6 +40,7 @@ class TrajectPrijsServiceTestWithAnnotation {
         int actual = this.target.getTrajectPrijs("Amsterdam", "Apeldoorn");
 
         Assertions.assertEquals(17, actual);
+        verify(this.trajectNaarTrajectEenhedenService).getTrajectEenheden("Amsterdam", "Apeldoorn");
     }
 
     @Test
