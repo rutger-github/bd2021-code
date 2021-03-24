@@ -13,7 +13,7 @@ public class BankTransferCommand {
         this.fromBankAccountNumber = fromBankAccountNumber;
         this.toBankAccountNumber = toBankAccountNumber;
 
-        if (amountToTransfer.compareTo(BigDecimal.ZERO) < 0) {
+        if (amountToTransfer.compareTo(BigDecimal.ZERO) != 1) {
             throw new InvalidAmountToTransferException();
         }
         this.amountToTransfer = amountToTransfer;

@@ -9,7 +9,7 @@ public class BankWithdrawCommand {
     private final BigDecimal amountToWithdraw;
 
     public BankWithdrawCommand(String bankAccountNumber, BigDecimal amountToWithdraw) throws InvalidAmountToTransferException {
-        if (amountToWithdraw.compareTo(BigDecimal.ZERO) < 0) {
+        if (amountToWithdraw.compareTo(BigDecimal.ZERO) != 1) {
             throw new InvalidAmountToTransferException();
         }
 

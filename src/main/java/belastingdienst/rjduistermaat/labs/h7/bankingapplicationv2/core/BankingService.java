@@ -58,7 +58,7 @@ public class BankingService {
 
         BigDecimal fromBankAccountBalance = this.bankAccountRepository.getBalance(bankAccountNumber);
 
-        return fromBankAccountBalance.compareTo(amountToTransfer) > 0;
+        return fromBankAccountBalance.compareTo(amountToTransfer) == 1;
     }
 
 }
