@@ -47,14 +47,28 @@ public class Person {
         return this.name + " (" + this.age + ") is " + this.gender;
     }
 
-    public boolean equals(Person personToCompare) {
-        if (this == personToCompare) return true;
-        if (personToCompare == null || getClass() != personToCompare.getClass()) return false;
-        return age == personToCompare.age && Objects.equals(name, personToCompare.name) && gender == personToCompare.gender;
+//    public boolean equals(Person personToCompare) {
+//        if (this == personToCompare) return true;
+//        if (personToCompare == null || getClass() != personToCompare.getClass()) return false;
+//        return age == personToCompare.age && Objects.equals(name, personToCompare.name) && gender == personToCompare.gender;
+//    }
+
+//    public int hashCode() {
+//        return age * Objects.hashCode(name) * Objects.hashCode(gender);
+//    }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Person person = (Person) o;
+        return age == person.age && name.equals(person.name) && gender == person.gender;
     }
 
+    @Override
     public int hashCode() {
-        return age * Objects.hashCode(name) * Objects.hashCode(gender);
+        return Objects.hash(name, age, gender);
     }
 
     public void experimentObject() {
