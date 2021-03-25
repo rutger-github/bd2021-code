@@ -2,7 +2,7 @@ package belastingdienst.rjduistermaat.labs.dicontainer;
 
 import belastingdienst.rjduistermaat.labs.dicontainer.bank.core.BankTransferCommand;
 import belastingdienst.rjduistermaat.labs.dicontainer.bank.core.TransferMoneyService;
-import belastingdienst.rjduistermaat.labs.dicontainer.shared.core.bootstrap.Bootstrap;
+import belastingdienst.rjduistermaat.labs.dicontainer.shared.core.bootstrap.Container;
 import belastingdienst.rjduistermaat.labs.h7.bankingapplicationv2.core.exceptions.InsufficientBalanceException;
 import belastingdienst.rjduistermaat.labs.h7.bankingapplicationv2.core.exceptions.InvalidAmountToTransferException;
 
@@ -12,10 +12,10 @@ public class App {
 
 
     public static void main(String[] args) {
-        var bootstrap = new Bootstrap();
-        bootstrap.start();
 
-        var container = bootstrap.getContainer();
+
+        var container = Container.getInstance();
+
 
         var testService = (TransferMoneyService) container.getContainers().get(TransferMoneyService.class.getName());
 

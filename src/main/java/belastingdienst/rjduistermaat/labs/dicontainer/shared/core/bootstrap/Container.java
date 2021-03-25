@@ -14,4 +14,11 @@ public class Container {
         this.containers.put(name, classObject);
     }
 
+    public static Container getInstance() {
+
+        var bootstrap = new Bootstrap();
+        bootstrap.start();
+        return bootstrap.getContainer();
+    }
+
 }
