@@ -6,13 +6,14 @@ import org.slf4j.LoggerFactory;
 
 public class LoggerAdapter implements LoggerInterface {
     private Logger logger;
+    private static String DEFAULT_LOGGER = "Application";
 
     private LoggerAdapter(Logger logger) {
         this.logger = logger;
     }
 
     public LoggerAdapter() {
-        this.logger = LoggerFactory.getLogger("Application");
+        this.logger = LoggerFactory.getLogger(DEFAULT_LOGGER);
     }
 
     public LoggerAdapter getLogger(String name) {
