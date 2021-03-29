@@ -3,6 +3,7 @@ package belastingdienst.rjduistermaat.labs.h11;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Objects;
+import java.util.function.Function;
 
 public class Person extends Human {
     private String name;
@@ -114,6 +115,15 @@ public class Person extends Human {
         }
     }
 
+    public Human createSubHuman() {
+        return new Human() {
+            @Override
+            public String greet() {
+                return "Sub is the best.";
+            }
+        };
+    }
+
     private class HistoryRecord {
         private String description;
 
@@ -126,4 +136,15 @@ public class Person extends Human {
             return description;
         }
     }
+
+    public String greetSubHuman() {
+        HumanGreetInterface h = () -> "Sub is the best.";
+
+        return h.execute();
+    }
+
+    private interface HumanGreetInterface {
+        String execute();
+    }
+
 }
