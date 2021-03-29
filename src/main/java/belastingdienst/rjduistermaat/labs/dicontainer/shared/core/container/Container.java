@@ -1,6 +1,7 @@
 package belastingdienst.rjduistermaat.labs.dicontainer.shared.core.container;
 
 import belastingdienst.rjduistermaat.labs.dicontainer.bank.infrastructure.container.ServiceProviderBank;
+import belastingdienst.rjduistermaat.labs.dicontainer.shared.infrastructure.container.ServiceProviderShared;
 
 import java.util.HashMap;
 
@@ -18,6 +19,7 @@ public class Container {
         var container = new Container();
 
         container.registerContainer(new ServiceProviderBank());
+        container.registerContainer(new ServiceProviderShared());
 
         Container.instance = container;
 

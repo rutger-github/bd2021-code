@@ -2,6 +2,7 @@ package belastingdienst.rjduistermaat.labs.dicontainer;
 
 import belastingdienst.rjduistermaat.labs.dicontainer.bank.core.BankTransferCommand;
 import belastingdienst.rjduistermaat.labs.dicontainer.bank.core.TransferMoneyService;
+import belastingdienst.rjduistermaat.labs.dicontainer.shared.core.contacts.ContactService;
 import belastingdienst.rjduistermaat.labs.dicontainer.shared.core.container.Container;
 import belastingdienst.rjduistermaat.labs.h7.bankingapplicationv2.core.exceptions.InsufficientBalanceException;
 import belastingdienst.rjduistermaat.labs.h7.bankingapplicationv2.core.exceptions.InvalidAmountToTransferException;
@@ -39,6 +40,9 @@ public class App {
         } catch (InvalidAmountToTransferException e) {
             e.printStackTrace();
         }
+
+        ContactService contactService = (ContactService) testcontainerinstance.getContainerObject(ContactService.class.getName());
+        contactService.call();
 
     }
 

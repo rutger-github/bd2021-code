@@ -5,6 +5,7 @@ import belastingdienst.rjduistermaat.labs.dicontainer.bank.core.TransferMoneySer
 import belastingdienst.rjduistermaat.labs.dicontainer.bank.infrastructure.memory.TransferMoneyRepository;
 import belastingdienst.rjduistermaat.labs.dicontainer.shared.core.container.Container;
 import belastingdienst.rjduistermaat.labs.dicontainer.shared.core.container.ServiceProviderInterface;
+import belastingdienst.rjduistermaat.labs.dicontainer.shared.core.logger.LoggerInterface;
 
 public class ServiceProviderBank implements ServiceProviderInterface {
 
@@ -15,8 +16,11 @@ public class ServiceProviderBank implements ServiceProviderInterface {
         });
 
         container.putContainerObject(TransferMoneyService.class.getName(), () -> {
+            var logger = (LoggerInterface) container.getContainerObject(LoggerInterface.class.getName());
+
             return new TransferMoneyService(
-                    (TransferMoneyRepositoryInterface) Container.getInstance().getContainerObject(TransferMoneyRepositoryInterface.class.getName())
+                    (TransferMoneyRepositoryInterface) container.getContainerObject(TransferMoneyRepositoryInterface.class.getName()),
+                    logger.getLogger("Banking Module")
             );
         });
     }
