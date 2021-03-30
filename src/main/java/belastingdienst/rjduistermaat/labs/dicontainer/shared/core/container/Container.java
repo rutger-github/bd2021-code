@@ -34,12 +34,26 @@ public class Container {
             throw new RuntimeException("unknown container");
         }
 
-        ContainerObject containerObject = container.get(containerName);
-        Object run = containerObject.run();
-        return (R) run;
+        return (R) container.get(containerName).run();
+    }
+
+    public String getContainerObject(String containerName) {
+
+        if (this.container.containsKey(containerName) == false) {
+            throw new RuntimeException("unknown container");
+        }
+
+        return container.get(containerName).run().toString();
     }
 
     public void putContainerObject(String containerName, ContainerObject containerObject) {
+        if (this.container.containsKey(containerName)) {
+            throw new RuntimeException("Container '" + containerName + "' already created");
+        }
+        this.container.put(containerName, containerObject);
+    }
+
+    public void overwriteContainerObject(String containerName, ContainerObject containerObject) {
         this.container.put(containerName, containerObject);
     }
 

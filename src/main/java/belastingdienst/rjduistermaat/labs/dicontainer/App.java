@@ -45,6 +45,16 @@ public class App {
         ContactService contactService = testcontainerinstance.getContainerObject(ContactService.class);
         contactService.call();
 
+        var testVar = testcontainerinstance.getContainerObject("VarShared");
+        System.out.println(testVar);
+
+        testcontainerinstance.overwriteContainerObject("VarShared", () -> "hallo");
+        var testVar2 = testcontainerinstance.getContainerObject("VarShared");
+        System.out.println(testVar2);
+
+        testcontainerinstance.overwriteContainerObject("VarShared", () -> 1);
+        var testVar3 = testcontainerinstance.getContainerObject("VarShared");
+        System.out.println(testVar3);
     }
 
 

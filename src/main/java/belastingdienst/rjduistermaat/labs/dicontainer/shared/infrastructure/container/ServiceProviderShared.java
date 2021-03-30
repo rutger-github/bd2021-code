@@ -18,5 +18,9 @@ public class ServiceProviderShared implements ServiceProviderInterface {
                     container.getContainerObject(LoggerInterface.class)
             );
         });
+
+        container.putContainerObject("VarShared", () -> {
+            return "Application shared constant";
+        });
     }
 }
