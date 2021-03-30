@@ -15,7 +15,8 @@ public class App {
     public static void main(String[] args) {
 
         var testcontainerinstance = Container.getInstance();
-        TransferMoneyService transferMoneyService = (TransferMoneyService) testcontainerinstance.getContainerObject(TransferMoneyService.class.getName());
+
+        TransferMoneyService transferMoneyService = testcontainerinstance.getContainerObject(TransferMoneyService.class);
         try {
             transferMoneyService.transfer(
                     new BankTransferCommand(
@@ -28,7 +29,7 @@ public class App {
             e.printStackTrace();
         }
 
-        TransferMoneyService transferMoneyService2 = (TransferMoneyService) testcontainerinstance.getContainerObject(TransferMoneyService.class.getName());
+        TransferMoneyService transferMoneyService2 = testcontainerinstance.getContainerObject(TransferMoneyService.class);
         try {
             transferMoneyService2.transfer(
                     new BankTransferCommand(
@@ -41,7 +42,7 @@ public class App {
             e.printStackTrace();
         }
 
-        ContactService contactService = (ContactService) testcontainerinstance.getContainerObject(ContactService.class.getName());
+        ContactService contactService = testcontainerinstance.getContainerObject(ContactService.class);
         contactService.call();
 
     }

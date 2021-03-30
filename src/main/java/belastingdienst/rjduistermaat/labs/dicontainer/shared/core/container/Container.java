@@ -2,6 +2,7 @@ package belastingdienst.rjduistermaat.labs.dicontainer.shared.core.container;
 
 import belastingdienst.rjduistermaat.labs.dicontainer.bank.infrastructure.container.ServiceProviderBank;
 import belastingdienst.rjduistermaat.labs.dicontainer.shared.infrastructure.container.ServiceProviderShared;
+import com.sun.jdi.ClassObjectReference;
 
 import java.util.HashMap;
 
@@ -26,12 +27,16 @@ public class Container {
         return Container.instance;
     }
 
-    public Object getContainerObject(Object containerName) {
+    public <R> R getContainerObject(Class<R> containerClass) {
+        String containerName = containerClass.getName();
+
         if (this.container.containsKey(containerName) == false) {
             throw new RuntimeException("unknown container");
         }
 
-        return container.get(containerName).run();
+        ContainerObject containerObject = container.get(containerName);
+        Object run = containerObject.run();
+        return (R) run;
     }
 
     public void putContainerObject(String containerName, ContainerObject containerObject) {

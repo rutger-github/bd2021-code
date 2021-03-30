@@ -16,11 +16,9 @@ public class ServiceProviderBank implements ServiceProviderInterface {
         });
 
         container.putContainerObject(TransferMoneyService.class.getName(), () -> {
-            var logger = (LoggerInterface) container.getContainerObject(LoggerInterface.class.getName());
-
             return new TransferMoneyService(
-                    (TransferMoneyRepositoryInterface) container.getContainerObject(TransferMoneyRepositoryInterface.class.getName()),
-                    logger.getLogger("Banking Module")
+                    container.getContainerObject(TransferMoneyRepositoryInterface.class),
+                    container.getContainerObject(LoggerInterface.class).getLogger("Banking Module")
             );
         });
     }

@@ -15,7 +15,7 @@ public class ServiceProviderShared implements ServiceProviderInterface {
 
         container.putContainerObject(ContactService.class.getName(), () -> {
             return new ContactService(
-                    (LoggerInterface) container.getContainerObject(LoggerInterface.class.getName())
+                    container.getContainerObject(LoggerInterface.class)
             );
         });
     }
