@@ -1,6 +1,6 @@
-package belastingdienst.rjduistermaat.labs.dicontainer.shared.core.contacts;
+package belastingdienst.rjduistermaat.dicontainer.shared.core.contacts;
 
-import belastingdienst.rjduistermaat.labs.dicontainer.shared.core.logger.LoggerInterface;
+import belastingdienst.rjduistermaat.dicontainer.shared.core.logger.LoggerInterface;
 
 public class ContactService {
     private LoggerInterface logger;

@@ -1,4 +1,4 @@
-package belastingdienst.rjduistermaat.labs.dicontainer.bank.core;
+package belastingdienst.rjduistermaat.dicontainer.bank.core;
 
 import belastingdienst.rjduistermaat.labs.h7.bankingapplicationv2.core.exceptions.InvalidAmountToTransferException;
 

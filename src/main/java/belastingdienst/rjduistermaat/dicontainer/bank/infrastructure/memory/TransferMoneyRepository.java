@@ -1,7 +1,7 @@
-package belastingdienst.rjduistermaat.labs.dicontainer.bank.infrastructure.memory;
+package belastingdienst.rjduistermaat.dicontainer.bank.infrastructure.memory;
 
 
-import belastingdienst.rjduistermaat.labs.dicontainer.bank.core.TransferMoneyRepositoryInterface;
+import belastingdienst.rjduistermaat.dicontainer.bank.core.TransferMoneyRepositoryInterface;
 
 public class TransferMoneyRepository implements TransferMoneyRepositoryInterface {
 

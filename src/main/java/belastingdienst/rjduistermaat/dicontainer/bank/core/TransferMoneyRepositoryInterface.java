@@ -1,4 +1,4 @@
-package belastingdienst.rjduistermaat.labs.dicontainer.bank.core;
+package belastingdienst.rjduistermaat.dicontainer.bank.core;
 
 public interface TransferMoneyRepositoryInterface {
     void transfer();

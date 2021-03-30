@@ -1,6 +1,6 @@
-package belastingdienst.rjduistermaat.labs.dicontainer.shared.infrastructure.logger;
+package belastingdienst.rjduistermaat.dicontainer.shared.infrastructure.logger;
 
-import belastingdienst.rjduistermaat.labs.dicontainer.shared.core.logger.LoggerInterface;
+import belastingdienst.rjduistermaat.dicontainer.shared.core.logger.LoggerInterface;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

@@ -1,9 +1,9 @@
-package belastingdienst.rjduistermaat.labs.dicontainer;
+package belastingdienst.rjduistermaat.dicontainer;
 
-import belastingdienst.rjduistermaat.labs.dicontainer.bank.core.BankTransferCommand;
-import belastingdienst.rjduistermaat.labs.dicontainer.bank.core.TransferMoneyService;
-import belastingdienst.rjduistermaat.labs.dicontainer.shared.core.contacts.ContactService;
-import belastingdienst.rjduistermaat.labs.dicontainer.shared.core.container.Container;
+import belastingdienst.rjduistermaat.dicontainer.bank.core.BankTransferCommand;
+import belastingdienst.rjduistermaat.dicontainer.bank.core.TransferMoneyService;
+import belastingdienst.rjduistermaat.dicontainer.shared.core.contacts.ContactService;
+import belastingdienst.rjduistermaat.dicontainer.shared.core.container.Container;
 import belastingdienst.rjduistermaat.labs.h7.bankingapplicationv2.core.exceptions.InsufficientBalanceException;
 import belastingdienst.rjduistermaat.labs.h7.bankingapplicationv2.core.exceptions.InvalidAmountToTransferException;
 

@@ -1,8 +1,7 @@
-package belastingdienst.rjduistermaat.labs.dicontainer.shared.core.container;
+package belastingdienst.rjduistermaat.dicontainer.shared.core.container;
 
-import belastingdienst.rjduistermaat.labs.dicontainer.bank.infrastructure.container.ServiceProviderBank;
-import belastingdienst.rjduistermaat.labs.dicontainer.shared.infrastructure.container.ServiceProviderShared;
-import com.sun.jdi.ClassObjectReference;
+import belastingdienst.rjduistermaat.dicontainer.bank.infrastructure.container.ServiceProviderBank;
+import belastingdienst.rjduistermaat.dicontainer.shared.infrastructure.container.ServiceProviderShared;
 
 import java.util.HashMap;
 
