@@ -7,6 +7,10 @@ public class PayCommand {
     private int amount;
 
     public PayCommand(Card card, int amount) {
+        if (amount < 0) {
+            throw new RuntimeException("negative amount is not allowed");
+        }
+
         this.card = card;
         this.amount = amount;
     }
