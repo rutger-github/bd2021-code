@@ -4,7 +4,12 @@ public class GoldCard extends Card {
     private int discount;
 
     public GoldCard(int cardId, String name, Double credit) {
+        this(cardId, name, credit, 0);
+    }
+
+    public GoldCard(int cardId, String name, Double credit, int discount) {
         super(cardId, name, credit);
+        setDiscount(discount);
     }
 
     @Override
@@ -16,8 +21,16 @@ public class GoldCard extends Card {
 
     public void setDiscount(int discount) {
         if (discount < 1 || discount > 30) {
-            throw new RuntimeException("out of range");
+            throw new RuntimeException("discount is out of range");
         }
         this.discount = discount;
+    }
+
+    @Override
+    public String toString() {
+        return "GoldCard{" +
+                super.toString() +
+                ", discount=" + discount +
+                '}';
     }
 }

@@ -15,4 +15,11 @@ public class RegularCard extends Card {
         this.credit -= amount;
         return true;
     }
+
+    @Override
+    public String toString() {
+        return "RegularCard{" +
+                super.toString() +
+                '}';
+    }
 }

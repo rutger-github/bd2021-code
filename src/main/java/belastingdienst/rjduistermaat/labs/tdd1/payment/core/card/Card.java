@@ -12,4 +12,11 @@ public abstract class Card {
     }
 
     public abstract boolean pay(int amount);
+
+    @Override
+    public String toString() {
+        return "cardId=" + cardId +
+                ", name='" + name + '\'' +
+                ", credit=" + credit;
+    }
 }
