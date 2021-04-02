@@ -28,9 +28,7 @@ public class GoldCard extends Card {
 
     @Override
     public String toString() {
-        return "GoldCard{" +
-                super.toString() +
-                ", discount=" + discount +
-                '}';
+        return super.toString() +
+                ", card=GoldCard, discount=" + discount;
     }
 }

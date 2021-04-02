@@ -18,8 +18,7 @@ public class RegularCard extends Card {
 
     @Override
     public String toString() {
-        return "RegularCard{" +
-                super.toString() +
-                '}';
+        return super.toString() +
+                ", card=RegularCard";
     }
 }
