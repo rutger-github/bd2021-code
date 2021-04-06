@@ -43,8 +43,6 @@ public class AnnotationSearcher {
 
     private void addAnnotationsOfDeclaredMethods(Method[] methods) {
         for (Method method : methods) {
-            var test = method.getDeclaredAnnotations();
-            var test2 = method.isAnnotationPresent(MyAnnotation2.class);
             for (Annotation annotation : method.getAnnotations()) {
                 if (this.annotationClasses.contains(annotation.annotationType())) {
                     this.reflectedAnnotations.addAnnotation(ElementType.METHOD, method.getName(), method.getAnnotations());
