@@ -21,7 +21,7 @@ public class AuthorDao {
 
         List<Author> authorList = new LinkedList<>();
         ResultSet result = null;
-        try {
+        try (this.dbConnection) {
 
             var preparedStatement = this.dbConnection.preparedStatement("SELECT * FROM " + TABLE_NAME + " WHERE AU_FNAME LIKE ?");
             preparedStatement.setString(1, "%" + searchName + "%");
@@ -47,6 +47,7 @@ public class AuthorDao {
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
+
 
         return authorList;
 

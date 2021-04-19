@@ -2,7 +2,7 @@ package belastingdienst.rjduistermaat.jdbc.labs;
 
 import java.sql.*;
 
-public class DbConnection {
+public class DbConnection implements AutoCloseable {
     private static final String URL = "jdbc:mysql://localhost:3306/pubs?serverTimezone=UTC";
     public static final String USER = "root";
     public static final String PASSWORD = "";
@@ -25,4 +25,12 @@ public class DbConnection {
     }
 
 
+    @Override
+    public void close()  {
+        try {
+            this.connection.close();
+        } catch (SQLException exception) {
+            exception.printStackTrace();
+        }
+    }
 }
