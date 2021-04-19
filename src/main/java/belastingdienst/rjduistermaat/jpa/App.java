@@ -4,14 +4,26 @@ public class App {
 
     public static void main(String[] args) {
 
-        Person person1 = new Person("Rutger", "Duistermaat");
 
-        var personDao = new PersonDao();
+        Person person1 = new Person("Pietje", "Puk");
 
-        personDao.create(person1);
+//        var personDao = new PersonDao();
 
-        System.out.println(personDao.find(1));
-        System.out.println(personDao.find(2));
+//        personDao.create(person1);
+
+//        System.out.println(personDao.find(8));
+
+        var personDaoEnum = PersonDaoEnum.INSTANCE;
+
+//        personDaoEnum.create(person1);
+
+        Person test = personDaoEnum.find(9);
+//
+        System.out.println(test);
+//
+//        var persons = personDaoEnum.findAllNamed();
+//
+//        persons.forEach(System.out::println);
 
 
     }
