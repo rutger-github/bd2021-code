@@ -1,12 +1,15 @@
 package belastingdienst.rjduistermaat.jpa;
 
+import belastingdienst.rjduistermaat.jpa.dao.CreateInterface;
+import belastingdienst.rjduistermaat.jpa.dao.ReadInterface;
+
 import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
 
 public enum JobDao
         implements
-        DaoCreateInterface<Job>,
-        DaoReadInterface<Job> {
+        CreateInterface<Job>,
+        ReadInterface<Job, Integer> {
 
     INSTANCE;
 

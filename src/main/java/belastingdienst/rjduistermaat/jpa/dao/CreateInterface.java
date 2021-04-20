@@ -1,6 +1,6 @@
-package belastingdienst.rjduistermaat.jpa;
+package belastingdienst.rjduistermaat.jpa.dao;
 
-public interface DaoCreateInterface<E> extends GetEntityManagerInterface<E> {
+public interface CreateInterface<E> extends GetEntityManagerInterface<E> {
     default void create(E entity) {
         var em = getEntityManager();
         var transaction = em.getTransaction();

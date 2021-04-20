@@ -1,4 +1,4 @@
-package belastingdienst.rjduistermaat.jpa;
+package belastingdienst.rjduistermaat.jpa.dao;
 
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
