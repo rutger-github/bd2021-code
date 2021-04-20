@@ -18,19 +18,22 @@ public class App {
 
 //        System.out.println(personDao.find(8));
 
-        var personDaoEnum = PersonDaoEnum.INSTANCE;
+        var personDao = PersonDao.INSTANCE;
 
-//        personDaoEnum.create(person1);
+//        personDao.create(person1);
 
-//        Person test = personDaoEnum.find(9);
+//        Person test = personDao.find(9);
 
 //        System.out.println(test);
 //
-        var person2 = personDaoEnum.find(2);
-        personDaoEnum.delete(2);
-        personDaoEnum.delete(person2);
+        var person2 = personDao.find(2);
+        personDao.delete(2);
+        personDao.delete(person2);
 
-        var persons = personDaoEnum.findAllNamed();
+        var person6 = personDao.find(6);
+        personDao.updateFirstname(person6, "Henk");
+
+        var persons = personDao.findAllNamed();
 
         persons.forEach(System.out::println);
 

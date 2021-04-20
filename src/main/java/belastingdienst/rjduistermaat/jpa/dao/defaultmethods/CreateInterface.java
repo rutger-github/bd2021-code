@@ -1,4 +1,6 @@
-package belastingdienst.rjduistermaat.jpa.dao;
+package belastingdienst.rjduistermaat.jpa.dao.defaultmethods;
+
+import belastingdienst.rjduistermaat.jpa.dao.GetEntityManagerInterface;
 
 public interface CreateInterface<E> extends GetEntityManagerInterface<E> {
     default void create(E entity) {

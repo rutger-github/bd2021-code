@@ -32,6 +32,10 @@ public class Person implements GetId<Integer> {
         this.job = job;
     }
 
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
     @Override
     public String toString() {
         return "Person{" +

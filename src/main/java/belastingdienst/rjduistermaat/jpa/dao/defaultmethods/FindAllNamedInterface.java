@@ -1,4 +1,7 @@
-package belastingdienst.rjduistermaat.jpa.dao;
+package belastingdienst.rjduistermaat.jpa.dao.defaultmethods;
+
+import belastingdienst.rjduistermaat.jpa.dao.GetClazzInterface;
+import belastingdienst.rjduistermaat.jpa.dao.GetEntityManagerInterface;
 
 import java.util.List;
 

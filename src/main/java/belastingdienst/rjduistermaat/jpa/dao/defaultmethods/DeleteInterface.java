@@ -1,4 +1,8 @@
-package belastingdienst.rjduistermaat.jpa.dao;
+package belastingdienst.rjduistermaat.jpa.dao.defaultmethods;
+
+import belastingdienst.rjduistermaat.jpa.dao.GetClazzInterface;
+import belastingdienst.rjduistermaat.jpa.dao.GetEntityManagerInterface;
+import belastingdienst.rjduistermaat.jpa.dao.GetId;
 
 public interface DeleteInterface<E, I> extends GetEntityManagerInterface<E>, GetClazzInterface<E> {
 
