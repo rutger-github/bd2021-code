@@ -4,8 +4,13 @@ public class App {
 
     public static void main(String[] args) {
 
+        var jobDao = JobDao.INSTANCE;
+
+        Job job1 = jobDao.find(3);
+
 
         Person person1 = new Person("Pietje", "Puk");
+        person1.setJob(job1);
 
 //        var personDao = new PersonDao();
 
@@ -17,13 +22,13 @@ public class App {
 
 //        personDaoEnum.create(person1);
 
-        Person test = personDaoEnum.find(9);
+//        Person test = personDaoEnum.find(9);
+
+//        System.out.println(test);
 //
-        System.out.println(test);
-//
-//        var persons = personDaoEnum.findAllNamed();
-//
-//        persons.forEach(System.out::println);
+        var persons = personDaoEnum.findAllNamed();
+
+        persons.forEach(System.out::println);
 
 
     }

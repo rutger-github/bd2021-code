@@ -15,6 +15,9 @@ public class Person {
     private String firstName;
     private String lastName;
 
+    @ManyToOne(cascade = CascadeType.MERGE)
+    private Job job;
+
     public Person() {
     }
 
@@ -23,12 +26,17 @@ public class Person {
         this.lastName = lastName;
     }
 
+    public void setJob(Job job) {
+        this.job = job;
+    }
+
     @Override
     public String toString() {
         return "Person{" +
                 "id=" + id +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
+                ", job=" + job +
                 '}';
     }
 

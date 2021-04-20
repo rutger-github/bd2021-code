@@ -3,10 +3,10 @@ package belastingdienst.rjduistermaat.jpa;
 import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
 
-public enum PersonDaoEnum
+public enum JobDao
         implements
-        DaoReadInterface<Person>,
-        DaoCreateInterface<Person> {
+        DaoCreateInterface<Job>,
+        DaoReadInterface<Job> {
 
     INSTANCE;
 
@@ -16,7 +16,7 @@ public enum PersonDaoEnum
     }
 
     @Override
-    public Class<Person> getClazz() {
-        return Person.class;
+    public Class<Job> getClazz() {
+        return Job.class;
     }
 }
