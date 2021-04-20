@@ -13,9 +13,19 @@ public enum JobDao
 
     INSTANCE;
 
+    private EntityManager entityManager;
+
+    JobDao(EntityManager entityManager) {
+        this.entityManager = entityManager;
+    }
+
+    JobDao() {
+        this.entityManager = Persistence.createEntityManagerFactory("MySQL-jpademo").createEntityManager();
+    }
+
     @Override
     public EntityManager getEntityManager() {
-        return Persistence.createEntityManagerFactory("MySQL-jpademo").createEntityManager();
+        return this.entityManager;
     }
 
     @Override
