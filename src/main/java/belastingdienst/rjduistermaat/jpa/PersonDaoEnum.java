@@ -1,6 +1,7 @@
 package belastingdienst.rjduistermaat.jpa;
 
 import belastingdienst.rjduistermaat.jpa.dao.CreateInterface;
+import belastingdienst.rjduistermaat.jpa.dao.DeleteInterface;
 import belastingdienst.rjduistermaat.jpa.dao.ReadInterface;
 
 import javax.persistence.EntityManager;
@@ -9,6 +10,7 @@ import javax.persistence.Persistence;
 public enum PersonDaoEnum
         implements
         ReadInterface<Person, Integer>,
+        DeleteInterface<Person, Integer>,
         CreateInterface<Person> {
 
     INSTANCE;
@@ -22,4 +24,5 @@ public enum PersonDaoEnum
     public Class<Person> getClazz() {
         return Person.class;
     }
+
 }

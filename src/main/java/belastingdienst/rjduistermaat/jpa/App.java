@@ -26,6 +26,10 @@ public class App {
 
 //        System.out.println(test);
 //
+        var person2 = personDaoEnum.find(2);
+        personDaoEnum.delete(2);
+        personDaoEnum.delete(person2);
+
         var persons = personDaoEnum.findAllNamed();
 
         persons.forEach(System.out::println);

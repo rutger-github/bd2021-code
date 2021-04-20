@@ -1,5 +1,7 @@
 package belastingdienst.rjduistermaat.jpa;
 
+import belastingdienst.rjduistermaat.jpa.dao.GetId;
+
 import javax.persistence.*;
 import java.util.Objects;
 
@@ -8,7 +10,7 @@ import java.util.Objects;
         @NamedQuery(name = "Person.findAll", query = "SELECT p FROM Person p"),
         @NamedQuery(name = "Person.find", query = "SELECT p FROM Person p WHERE p.id=:id")
 })
-public class Person {
+public class Person implements GetId<Integer> {
     @Id
     @GeneratedValue
     private int id;
@@ -51,5 +53,11 @@ public class Person {
     @Override
     public int hashCode() {
         return Objects.hash(id, firstName, lastName);
+    }
+
+
+    @Override
+    public Integer getId() {
+        return this.id;
     }
 }
