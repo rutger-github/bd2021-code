@@ -36,6 +36,7 @@ public class Person implements GetId<Integer> {
         this.firstName = firstName;
     }
 
+
     @Override
     public String toString() {
         return "Person{" +
@@ -51,12 +52,12 @@ public class Person implements GetId<Integer> {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Person person = (Person) o;
-        return id == person.id && firstName.equals(person.firstName) && lastName.equals(person.lastName);
+        return firstName.equals(person.firstName) && lastName.equals(person.lastName);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, firstName, lastName);
+        return Objects.hash(firstName, lastName);
     }
 
 

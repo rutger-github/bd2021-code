@@ -15,13 +15,9 @@ public enum PersonDao
 
     INSTANCE;
 
-    private EntityManager entityManager;
+    private EntityManager entityManager = Persistence.createEntityManagerFactory("MySQL-jpademo").createEntityManager();
 
-    PersonDao() {
-        this.entityManager = Persistence.createEntityManagerFactory("MySQL-jpademo").createEntityManager();
-    }
-
-    PersonDao(EntityManager entityManager) {
+    public void setEntityManager(EntityManager entityManager) {
         this.entityManager = entityManager;
     }
 
