@@ -4,6 +4,7 @@ import belastingdienst.rjduistermaat.jpa.dao.GetId;
 
 import javax.persistence.*;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
 @NamedQueries({
@@ -20,6 +21,9 @@ public class Person implements GetId<Integer> {
     @ManyToOne(cascade = CascadeType.MERGE)
     private Job job;
 
+    @OneToMany(cascade = CascadeType.MERGE)
+    private Set<Laptop> laptops;
+
     public Person() {
     }
 
@@ -32,10 +36,13 @@ public class Person implements GetId<Integer> {
         this.job = job;
     }
 
+    public void setLaptops(Set<Laptop> laptops) {
+        this.laptops = laptops;
+    }
+
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
-
 
     @Override
     public String toString() {
@@ -44,6 +51,7 @@ public class Person implements GetId<Integer> {
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", job=" + job +
+                ", laptops=" + laptops +
                 '}';
     }
 

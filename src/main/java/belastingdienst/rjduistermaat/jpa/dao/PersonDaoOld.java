@@ -1,4 +1,6 @@
-package belastingdienst.rjduistermaat.jpa;
+package belastingdienst.rjduistermaat.jpa.dao;
+
+import belastingdienst.rjduistermaat.jpa.Person;
 
 import javax.persistence.EntityManager;
 import javax.persistence.Persistence;

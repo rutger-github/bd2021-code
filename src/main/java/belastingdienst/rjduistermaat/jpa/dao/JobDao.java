@@ -1,5 +1,6 @@
-package belastingdienst.rjduistermaat.jpa;
+package belastingdienst.rjduistermaat.jpa.dao;
 
+import belastingdienst.rjduistermaat.jpa.Job;
 import belastingdienst.rjduistermaat.jpa.dao.ReadInterface;
 import belastingdienst.rjduistermaat.jpa.dao.WriteInterface;
 

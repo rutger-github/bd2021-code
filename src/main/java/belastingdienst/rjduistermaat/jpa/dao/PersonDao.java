@@ -1,7 +1,6 @@
-package belastingdienst.rjduistermaat.jpa;
+package belastingdienst.rjduistermaat.jpa.dao;
 
-import belastingdienst.rjduistermaat.jpa.dao.ReadInterface;
-import belastingdienst.rjduistermaat.jpa.dao.WriteInterface;
+import belastingdienst.rjduistermaat.jpa.Person;
 import belastingdienst.rjduistermaat.jpa.dao.defaultmethods.DeleteInterface;
 
 import javax.persistence.EntityManager;

@@ -1,6 +1,6 @@
 package belastingdienst.rjduistermaat.jpa.dao.defaultmethods;
 
-import belastingdienst.rjduistermaat.jpa.InvalidEntityException;
+import belastingdienst.rjduistermaat.jpa.dao.InvalidEntityException;
 import belastingdienst.rjduistermaat.jpa.dao.GetEntityClassInterface;
 import belastingdienst.rjduistermaat.jpa.dao.GetEntityManagerInterface;
 import belastingdienst.rjduistermaat.jpa.dao.GetId;
