@@ -1,11 +1,11 @@
 package belastingdienst.rjduistermaat.jpa.dao.defaultmethods;
 
 import belastingdienst.rjduistermaat.jpa.InvalidEntityException;
-import belastingdienst.rjduistermaat.jpa.dao.GetClazzInterface;
+import belastingdienst.rjduistermaat.jpa.dao.GetEntityClassInterface;
 import belastingdienst.rjduistermaat.jpa.dao.GetEntityManagerInterface;
 import belastingdienst.rjduistermaat.jpa.dao.GetId;
 
-public interface DeleteInterface<E, I> extends GetEntityManagerInterface<E>, GetClazzInterface<E> {
+public interface DeleteInterface<E, I> extends GetEntityManagerInterface<E>, GetEntityClassInterface<E> {
 
 
 
@@ -24,7 +24,7 @@ public interface DeleteInterface<E, I> extends GetEntityManagerInterface<E>, Get
         var em = getEntityManager();
         var transaction = em.getTransaction();
         transaction.begin();
-        var managedEntity = em.find(getClazz(), id);
+        var managedEntity = em.find(getEntityClass(), id);
         if (managedEntity != null) {
             em.remove(managedEntity);
         }

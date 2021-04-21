@@ -28,7 +28,7 @@ public enum PersonDao
 
 
     @Override
-    public Class<Person> getClazz() {
+    public Class<Person> getEntityClass() {
         return Person.class;
     }
 

@@ -29,7 +29,7 @@ public enum JobDao
     }
 
     @Override
-    public Class<Job> getClazz() {
+    public Class<Job> getEntityClass() {
         return Job.class;
     }
 }
