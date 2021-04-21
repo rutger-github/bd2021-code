@@ -1,8 +1,12 @@
 package belastingdienst.rjduistermaat.jpa;
 
+import belastingdienst.rjduistermaat.jpa.logger.LoggerAdapter;
+
 public class App {
 
     public static void main(String[] args) {
+
+        var logger = new LoggerAdapter().getLogger("App");
 
         var jobDao = JobDao.INSTANCE;
 
@@ -25,10 +29,17 @@ public class App {
 //        Person test = personDao.find(9);
 
 //        System.out.println(test);
+
+        Person personNull = null;
+        try {
+            personDao.delete(personNull);
+        } catch (InvalidEntityException exception) {
+            logger.warn("Person entity is null");
+        }
 //
-        var person2 = personDao.find(2);
-        personDao.delete(2);
-        personDao.delete(person2);
+//        var person2 = personDao.find(2);
+//        personDao.delete(2);
+//        personDao.delete(person2);
 
         var person6 = personDao.find(6);
         personDao.updateFirstname(person6, "Henk");
