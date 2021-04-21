@@ -3,6 +3,8 @@ package belastingdienst.rjduistermaat.jpa;
 import belastingdienst.rjduistermaat.jpa.dao.GetId;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.Size;
 import java.util.Objects;
 import java.util.Set;
 
@@ -15,8 +17,11 @@ public class Person implements GetId<Integer> {
     @Id
     @GeneratedValue
     private int id;
+    @Size(max = 10)
     private String firstName;
     private String lastName;
+    @Email
+    private String email;
 
     @ManyToOne(cascade = CascadeType.MERGE)
     private Job job;
@@ -42,6 +47,10 @@ public class Person implements GetId<Integer> {
 
     public void setFirstName(String firstName) {
         this.firstName = firstName;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     @Override

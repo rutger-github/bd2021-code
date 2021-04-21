@@ -5,8 +5,6 @@ import belastingdienst.rjduistermaat.jpa.dao.LaptopDao;
 import belastingdienst.rjduistermaat.jpa.dao.PersonDao;
 import belastingdienst.rjduistermaat.jpa.logger.LoggerAdapter;
 
-import java.util.Set;
-
 public class App {
 
     public static void main(String[] args) {
@@ -31,18 +29,21 @@ public class App {
 //        laptopDao.create(new Laptop("Hp"));
 
 
+//        Person person1 = new Person("Pietjesdasdadsasdadsa", "Puk");
         Person person1 = new Person("Pietje", "Puk");
         person1.setJob(job1);
-        try {
-
-            Set<Laptop> laptopSet = Set.of(
-                    laptopDao.findByBrand("Dell"),
-                    laptopDao.findByBrand("Hp")
-            );
-            person1.setLaptops(laptopSet);
-        } catch (Exception exception) {
-            logger.warn("Laptop not found by brand");
-        }
+        person1.setEmail("example@domain.com");
+//        person1.setEmail("invalidEmail!");
+//        try {
+//
+//            Set<Laptop> laptopSet = Set.of(
+//                    laptopDao.findByBrand("Dell"),
+//                    laptopDao.findByBrand("Hp")
+//            );
+//            person1.setLaptops(laptopSet);
+//        } catch (Exception exception) {
+//            logger.warn("Laptop not found by brand");
+//        }
 
 
         personDao.create(person1);
